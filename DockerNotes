@@ -1,0 +1,32 @@
+
+Drwaback of Virtual Machine?
+=> Every vm required it own OS.
+=> Each OS need more CPU / RAM . Which could otherwise be used to power more apps.
+=> VM are slow to boot up.
+
+Benifits of Container..
+=> all containers on a single host share the host’s OS. This frees up huge amounts of system resources such as CPU, RAM, and storage.
+=> Boot up quickly.
+
+It’s vital to understand that a container shares the kernel of the host it’s running on. This means containerized Windows apps need a host with a Windows kernel, whereas containerized Linux apps need a host with a Linux kernel.
+
+---------------------------------------------------------------------
+
+There are at least three things to be aware of when referring to Docker as a technology:
+1. The runtime
+2. The daemon (a.k.a. engine)
+3. The orchestrator
+
+
+The runtime operates at the lowest level and is responsible for starting and stopping containers (this includes building all of the OS constructs such as namespaces and cgroups). 
+
+The low-level runtime is called runc and is the reference implementation of Open Containers Initiative (OCI) runtime-spec. Its job is to interface with the underlying OS and start and stop containers. Every container on a Docker
+node was created and started by an instance of runc.
+The higher-level runtime is called containerd. This manages the entire container lifecycle including pulling images and managing runc instances. 
+
+A typical Docker installation has a single long-running containerd process  instructing runc to start and stop containers. runc is never a long-running process and exits as soon as a container is started.
+
+The Docker daemon (dockerd) sits above containerd and performs higherlevel tasks such as exposing the Docker API, managing images, managing volumes, managing networks, and more
+
+
+--------------------------------------------------------------------
