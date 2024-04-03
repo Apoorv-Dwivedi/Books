@@ -30,3 +30,26 @@ The Docker daemon (dockerd) sits above containerd and performs higherlevel tasks
 
 
 --------------------------------------------------------------------
+
+When you install Docker, you get two major components:
+   The Docker client
+   The Docker engine (sometimes called the “Docker daemon”)
+
+
+-------------------------------------------------------------------
+Important Docker Command.
+
+docker images  => List out all the images available in our local repository
+docker pull image_name:version => It will pull/download images from central repository to our local system.
+docker run -it image_name /bib/bash  => it first look for image in local repository/if not found it downloads the images from central repository and runs/start it.
+              -it mean it will launch container in interactive mode and attach terminal to current shell. /bin/bash tell docker to launch bash and attach it to shell.
+docker ps => List outs all the running container.
+docker exec container_id/name -it bash => used to execute command inside conatiner.
+docker stop container_Id => to stop a runninig container
+docker rm container_id => to remove a stopped conatiner 
+docker ps -a => list out all running and stopped container.
+
+
+---------------------------------------------------------------------
+
+The Dockerfile is a plain-text document that tells Docker how to build the app and dependencies into a Docker image.
